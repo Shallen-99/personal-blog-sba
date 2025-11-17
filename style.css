@@ -1,68 +1,166 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
 }
 
 .container {
   background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  padding: 25px 35px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
 }
 
-h1 {
-  text-align: center;
+h1, h2 {
   color: #333;
+  margin-top: 0;
 }
 
-.form-group {
+.subtitle {
+  margin-top: -10px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-row {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.form-row label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   font-weight: bold;
 }
 
-.form-group input[type="text"],
-.form-group textarea {
-  width: calc(100% - 22px); /* Account for padding and border */
+.form-row input[type="text"],
+.form-row textarea {
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box; /* Makes width calculation easier */
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.form-group input:invalid {
-  border-color: #e74c3c; /* Light red for invalid built-in states */
-}
-
-.form-group .error-message {
+.error {
   display: block;
-  color: #e74c3c; /* Red for error messages */
+  color: #e74c3c;
   font-size: 0.9em;
-  margin-top: 5px;
-  min-height: 1em; /* Reserve space to prevent layout shifts */
+  min-height: 1em;
 }
 
-button[type="submit"] {
-  width: 100%;
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+#submitBtn {
+  flex: 1;
   padding: 10px;
   background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
 }
- 
-button[type="submit"]:hover {
+
+#submitBtn:hover {
   background-color: #2980b9;
+}
+
+.secondary {
+  padding: 10px;
+  background-color: #bbb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.secondary:hover {
+  background-color: #999;
+}
+
+.hidden {
+  display: none;
+}
+
+.status {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ecfdf5;
+  color: #065f46;
+  font-size: 0.9em;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.post {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+}
+
+.post h3 {
+  margin: 0 0 8px;
+}
+
+.post .timestamp {
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 6px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.actions .edit {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.actions .edit:hover {
+  background-color: #d4ac0d;
+}
+
+.actions .delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.actions .delete:hover {
+  background-color: #c0392b;
+}
+
+.empty-state {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+  padding: 20px;
+  font-style: italic;
 }

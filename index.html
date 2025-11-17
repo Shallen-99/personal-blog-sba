@@ -5,24 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Blog</title>
     <link rel="stylesheet" href="style.css">
-    <script src="/script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Post Here</h1>
-        <form id="submitForm">
-            <div class="form-group">
-                <label for="title">Title of Post</label>
-                <input type="text" id="title" name="title" minlength="3" required>
-                <span class="error-message" id="titleError"></span>
-            </div>
-            <div class="form-group">
-                <label for="content">Enter Content Here</label>
-                <textarea name="content" id="content" required></textarea>
-                <span class="error-message" id="contentError"></span>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+    <main class="container">
+    <header>
+      <h1>My Mini Blog</h1>
+      <p class="subtitle">Create, edit, delete posts — persisted in localStorage.</p>
+    </header>
+
+    <section class="form-section" aria-labelledby="new-post-title">
+      <h2 id="new-post-title">New Post</h2>
+
+      <form id="postForm" novalidate>
+        <input type="hidden" id="editingId" value="" />
+
+        <div class="form-row">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" maxlength="100" required />
+          <span class="error" id="titleError" aria-live="polite"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="content">Content</label>
+          <textarea id="content" name="content" rows="6" required></textarea>
+          <span class="error" id="contentError" aria-live="polite"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submitBtn">Add Post</button>
+          <button type="button" id="cancelEditBtn" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+
+      <div id="status" aria-live="polite" class="status" hidden></div>
+    </section>
+
+    <section class="posts-section" aria-labelledby="posts-title">
+      <h2 id="posts-title">Posts</h2>
+
+      <div id="postsContainer" class="posts-container">
+      </div>
+
+      <div id="emptyState" class="empty-state">No posts yet — create your first post above.</div>
+    </section>
+  </main>
 </body>
 </html>
